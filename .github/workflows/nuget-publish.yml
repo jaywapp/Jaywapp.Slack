@@ -1,6 +1,9 @@
 ﻿name: NuGet Publish
 
 on:
+  push:
+    tags:
+      - 'v*'
   release:
     types: [published]
   workflow_dispatch:
@@ -27,6 +30,9 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "release" ]; then
             TAG="${{ github.event.release.tag_name }}"
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            REF="${{ github.ref }}"
+            TAG="${REF#refs/tags/}"
           else
             TAG="${{ inputs.version }}"
           fi
