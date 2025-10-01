@@ -25,4 +25,7 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageId>Jaywapp.Slack</PackageId>
   </PropertyGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
 </Project>
